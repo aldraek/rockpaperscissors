@@ -1,106 +1,37 @@
 <html>
 <head>
   <title>Rock Paper Scissors Project</title>
+  <link rel="stylesheet" href="main.css">
+  <script type="text/javascript" src="javascript.js" async></script>
 </head>
 <body>
-  <script>
+  <h1 class="title"><center>Lets Play Rock Paper Scissors</center></h1>
 
-  function computerPlay() {
-    let randomNumber = Math.random() * 9;
+  <div class="grid-container">
+    <div class="grid-item1">
+      <img alt="Rock" src="./rock.png" height="100" width="100">
+    </div>
+    <div class="grid-item2">
+      <img alt="Paper" src="./paper.png" height="100" width="100">
+    </div>
+    <div class="grid-item3">
+      <img alt="Scissors" src="./scissors.jpg" height="100" width="100">
+    </div>
+    <div class="grid-item4"><button id="btn_rock">Rock</button><br></br></div>
+    <div class="grid-item5"><button id="btn_paper">Paper</button><br></div>
+    <div class="grid-item6"><button id="btn_scissors">Scissors</button><br></div>
+  </div>
 
-    if (randomNumber <= 3) {
-      return "rock";
-    } else if (randomNumber > 3 && randomNumber <= 6) {
-      return "paper";
-    } else {
-      return "scissors";
-    }
-  }
-
-  function playRound (playerSelection, computerSelection) {
-    let result = checkWin(playerSelection, computerSelection);
-    displayStatus(playerSelection, computerSelection);
-    if (result == 1) {
-      playerScore++;
-    } else if (result == -1) {
-      computerScore++;
-    }
-    return result;
-
-  }
-
-  function checkWin (player, computer) {
-    if (player == 'rock') {
-      if (computer == 'rock') return 0;
-      if (computer == 'paper') {return -1;}
-      else {return 1;}
-    }
-    if (player == 'paper') {
-      if (computer == 'rock') return 1;
-      if (computer == 'paper') {return 0;}
-      else {return -1;}
-    }
-    if (player == 'scissors') {
-      if (computer == 'rock') return -1;
-      if (computer == 'paper') {return 1;}
-      else {return 0;}
-    }
-  }
-
-  function displayStatus (player, computer) {
-    if (player == 'rock') {
-      if (computer == 'rock') {
-        console.log("You tie! You both played Rock!");
-      } else if (computer == 'paper') {console.log("You lose! Paper beats Rock!");}
-      else {
-        console.log("You win! Rock beats Scissors!");}
-    }
-    if (player == 'paper') {
-      if (computer == 'rock') {
-      console.log("You win! Paper beats Rock!");
-      } else if (computer == 'paper') {console.log("You tie! You both played Paper!");}
-      else {console.log("You lose! Scissors beats Paper!");}
-    }
-    if (player == 'scissors') {
-      if (computer == 'rock') {
-        console.log("You lose! Rock beats Scissors!");}
-      else if (computer == 'paper') {console.log("You win! Scissors beats Paper!");}
-      else { console.log("You tie! You both played Scissors!");}
-    }
-  }
-
-  function playerPlay() {
-    let choice = prompt("Rock, Paper, or Scissors?");
-    // choice.toLowerCase();
-    return choice;
-  }
-
-  function game() {
-    playRound(playerPlay(), computerPlay());
-    playRound(playerPlay(), computerPlay());
-    playRound(playerPlay(), computerPlay());
-    playRound(playerPlay(), computerPlay());
-    playRound(playerPlay(), computerPlay());
-
-    console.log("[Score] You: " + playerScore + " Computer: " + computerScore);
-
-    if (playerScore > computerScore) {
-      console.log("You WIN the game!");
-    }
-    else {
-      console.log("You LOSE the game!");
-    }
-  }
-
-  let playerScore = 0;
-  let computerScore = 0;
-  let playerSelection = ''
-  let computerSelection = ''
-
-  game();
+  <div class="spacer"></div>
+  <div class="resultsdiv">
+    <div class="playerchoice"></div>
+    <div class="compchoice"></div>
+    <div class="roundresult"></div>
+  </div>
+  <h2 class="score"></h2>
+  <h1 class="gameresult"></h1>
 
 
-  </script>
 
 </body>
 </html>
